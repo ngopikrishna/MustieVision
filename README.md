@@ -23,6 +23,7 @@ Coming soon...
 1) Face Recognition using Openface
 
 High level overview
+
     1) A video stream is captured from Webcam.
     2) The frames are placed ina  queue buffer.
     3) The frames are processed for
