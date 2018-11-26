@@ -23,6 +23,7 @@ Coming soon...
 1) Face Recognition using Openface
 
 High level overview
+
     1) A video stream is captured from Webcam.
     2) The frames are placed ina  queue buffer.
     3) The frames are processed for
@@ -39,3 +40,32 @@ High level overview
 Steps 1&2 run in a separate thread.
 Step 3 runs in a separate thread.
 Step 6 is a completely different activity. It runs as a batch process and cannot happen in parallel with recognition (i.e 1,2 & 3)
+
+
+
+Running the code
+-----------------------
+
+Prerequisite packages
+-----------------------
+    *) OpenCV
+    *) Openface
+    *)
+
+Execution Instructions
+-----------------------
+*) at command prompt, run the below
+      python3 MustieFaceRecognition.py
+*) For recognizing faces, click on "Recognize Faces"
+*) For adding new faces to the database, follow below steps.
+    *) In the "training_images" folder, create subfolders.
+    *) The subfolder shall be one per person. The subfolder name is used as the string seen in the rectanglular box during recognition.
+    *) There can be any number of images of a person in the subfolder. They should be (a) JPGs (b) should NOT contain any other persons faces and (c) both eyes should be visible.
+    *) Now run the program and click "Train new faces".
+
+
+
+Notes
+-----
+*) If you are getting too many false positives then play with the value of __CONFIDENCE_LEVEL parameter in FaceRecognizer.py.
+*) If you want to run the program on GPU then turn the __CUDA value to True in FaceDetector.py. This will significantly speedup the runtime performance

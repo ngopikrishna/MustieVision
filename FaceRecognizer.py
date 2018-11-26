@@ -23,6 +23,7 @@ class FaceRecognizer:
         self.__classifiermodel_picklefile_location = classifiermodel_picklefile_location
         self.__classifiermodel_le = None
         self.__classifiermodel_clf = None
+        self.__CONFIDENCE_LEVEL = 0.3
 
         self.__load_pickle_file()
 
@@ -52,7 +53,7 @@ class FaceRecognizer:
         maxI = np.argmax(predictions)
         person = self.__classifiermodel_le.inverse_transform(maxI)
         confidence = predictions[maxI]
-        if confidence > 0.3:
+        if confidence > self.__CONFIDENCE_LEVEL:
             returnvalue = (person, confidence)
         else:
             returnvalue = (None, None)
